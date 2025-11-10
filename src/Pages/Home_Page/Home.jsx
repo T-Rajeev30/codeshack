@@ -5,6 +5,7 @@ import Aboutpage from "../About_Page/AboutPage.jsx";
 import EventsPage from "../Event_Page/EventPage.jsx";
 import { ThemeToggle } from "../components/ui/theme-toggle.jsx";
 import DemoOne from "./Background.jsx";
+import ContactPage from "../Contact_Page/ContactPage.jsx";
 
 const Home = () => {
   const [dark, setDark] = useState(true);
@@ -46,6 +47,10 @@ const Home = () => {
       {/* ✅ Events Page */}
       <section id="event-section" className="relative z-10">
         <EventsPage dark={dark} />
+      </section>
+
+      <section id="event-section" className="relative z-10">
+        <ContactPage dark={dark} />
       </section>
     </div>
   );
