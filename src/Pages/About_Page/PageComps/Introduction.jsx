@@ -19,7 +19,7 @@ export default function Introduction() {
     <div className="intro-wrapper">
       <motion.div
         ref={containerRef}
-        className="intro-container"
+        className="intro-container"z
         style={{ scale, y, opacity }}
       >
         <motion.div

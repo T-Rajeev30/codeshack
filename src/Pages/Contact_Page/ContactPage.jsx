@@ -6,7 +6,7 @@ export default function ContactPage() {
   useEffect(() => {
     gsap.from(pageRef.current, {
       scale: 0.9,
-      opacity: 0,
+      
       duration: 0.6,
       ease: "power3.out",
     });
@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <div
       ref={pageRef}
-      className="min-h-screen bg-black text-white p-10 flex items-center justify-center"
+      className="min-h-screen bg-gray-700 text-white p-10 flex items-center justify-center"
     >
       <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Left */}

@@ -40,10 +40,10 @@ export default function Homepage() {
       <div className="relative z-10">
         <AboutPage />
       </div>
-      <div className="relative z-10">
+      <div className="relative z-10 bg-black">
         <EventPage />
       </div>
-      <div className="relative z-10">
+      <div className="relative z-10 bg-black">
         <ContactPage />
       </div>
     </div>
