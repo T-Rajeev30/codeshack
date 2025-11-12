@@ -45,7 +45,7 @@ const Home = () => {
       </section>
 
       {/* ✅ Events Page */}
-      <section id="event-section" className="relative z-10">
+      <section id="events-section" className="relative z-10">
         <EventsPage dark={dark} />
       </section>
 

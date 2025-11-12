@@ -112,7 +112,7 @@ const Navbar = ({ dark }) => {
   const text = WHITE;
   const border = dark ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.20)";
 
-  const items = ["HOME", "ABOUT", "CLUBS", "PROJECTS", "EVENTS", "CONTACT"];
+  const items = ["HOME", "ABOUT", "EVENTS", "CONTACT"];
 
   return (
     <nav
@@ -135,7 +135,8 @@ const Navbar = ({ dark }) => {
           {/* LOGO */}
           <div
             style={{ color: text }}
-            className="font-semibold text-lg whitespace-nowrap"
+            className="font-semibold text-lg whitespace-nowrap cursor-pointer"
+            onClick={() => handleNavClick("HOME")}
           >
             {"<CODESHACK />"}
           </div>
@@ -155,7 +156,8 @@ const Navbar = ({ dark }) => {
             {items.map((item) => (
               <li
                 key={item}
-                className="cursor-pointer whitespace-nowrap hover:text-[#FF4FA3]"
+                className="cursor-pointer whitespace-nowrap hover:text-[#FF4FA3] transition-colors"
+                onClick={() => handleNavClick(item)}
               >
                 {item}
               </li>
