@@ -8,9 +8,9 @@ const Navbar = ({ dark }) => {
   const barRef = useRef(null);
   const menuRef = useRef(null);
 
-  const BASE_WIDTH = 250; // 👈 Your default collapsed width
-  const FULL_WIDTH = 900; // 👈 Fully expanded width
-  const MENU_OPEN_WIDTH = 600; // 👈 Width for menu reveal
+  const BASE_WIDTH = 250;
+  const FULL_WIDTH = 900;
+  const MENU_OPEN_WIDTH = 600;
 
   const [hovering, setHovering] = useState(false);
 
@@ -26,20 +26,15 @@ const Navbar = ({ dark }) => {
       const scrollY = window.scrollY;
       const maxScroll = about.offsetTop - 150;
 
-      // ✅ scroll progress: 0 = top, 1 = reached about section
       const progress = Math.min(1, scrollY / maxScroll);
-
-      // ✅ Hover → hard override (max)
       const target = hovering ? 1 : progress;
 
-      // ✅ Smooth width
       gsap.to(bar, {
         width: BASE_WIDTH + (FULL_WIDTH - BASE_WIDTH) * target,
         duration: 0.25,
         ease: "power2.out",
       });
 
-      // ✅ Smooth menu expansion
       gsap.to(menu, {
         width: MENU_OPEN_WIDTH * target,
         opacity: target,
@@ -49,15 +44,24 @@ const Navbar = ({ dark }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // run once on load
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [hovering]);
+
+  const handleNavClick = (item) => {
+    const sectionId = item.toLowerCase() === "home" ? "hero-section" : `${item.toLowerCase()}-section`;
+    const section = document.getElementById(sectionId);
+    
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const bg = dark ? "rgba(255,255,255,0.06)" : BLACK;
   const text = WHITE;
   const border = dark ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.20)";
 
-  const items = ["HOME", "ABOUT", "CLUBS", "PROJECTS", "EVENTS", "CONTACT"];
+  const items = ["HOME", "ABOUT", "EVENTS", "CONTACT"];
 
   return (
     <nav className="fixed top-8 left-0 right-0 z-50 flex justify-center pointer-events-none">
@@ -77,7 +81,8 @@ const Navbar = ({ dark }) => {
           {/* LOGO */}
           <div
             style={{ color: text }}
-            className="font-semibold text-lg whitespace-nowrap"
+            className="font-semibold text-lg whitespace-nowrap cursor-pointer"
+            onClick={() => handleNavClick("HOME")}
           >
             {"<CODESHACK />"}
           </div>
@@ -97,7 +102,8 @@ const Navbar = ({ dark }) => {
             {items.map((item) => (
               <li
                 key={item}
-                className="cursor-pointer whitespace-nowrap hover:text-[#FF4FA3]"
+                className="cursor-pointer whitespace-nowrap hover:text-[#FF4FA3] transition-colors"
+                onClick={() => handleNavClick(item)}
               >
                 {item}
               </li>

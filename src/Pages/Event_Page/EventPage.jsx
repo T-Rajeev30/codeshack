@@ -69,7 +69,7 @@ export default function Introduction({ dark }) {
 
   return (
     <section
-      id="intro-section"
+      id="event-section"
       ref={ref}
       className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center"
       style={{ background: dark ? "#000" : "#fff" }}
