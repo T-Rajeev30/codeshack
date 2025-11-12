@@ -79,11 +79,12 @@ export default function ContactPage({ dark = true }) {
         setFormData({ name: "", email: "", subject: "", message: "" });
         setTimeout(() => setSubmitted(false), 4000);
       } else {
+        console.error("Formspree error:", data);
         setError(data.error || "Failed to send message. Please try again.");
       }
     } catch (err) {
-      console.error("Form submission error:", err);
-      setError("Unable to send message. Please try emailing us directly or check your internet connection.");
+      console.error("Network error:", err);
+      setError(`Network error: ${err.message}. Please check your connection.`);
     } finally {
       setLoading(false);
     }
