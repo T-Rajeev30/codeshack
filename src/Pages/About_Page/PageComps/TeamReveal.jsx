@@ -127,7 +127,7 @@ const TEAM_MEMBERS = [
     name: "Lovish Jaiswal",
     group: "Media + Social",
     label: "Core Video Editor",
-    avatarUrl: "src/assets/TeamMembers/Lovish.jpg",
+    avatarUrl: "../../../assets/TeamMembers/Lovish.jpg",
     skills: "JavaScript developer · Django backend · DSA in C++",
     linkedin: "https://www.linkedin.com/in/jaiswal-lovish",
   },
