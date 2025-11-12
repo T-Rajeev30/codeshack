@@ -9,10 +9,10 @@ import { useRef } from "react";
 export function Hero({
   dark,
   eyebrow = "The Computing Clubs of Our Campus",
-  title = "Codeshack — Where Builders, Hackers, and Creators Grow",
+  title = "Codeshack – Where Builders, Hackers, and Creators Grow",
   subtitle = "A unified tech community housing Techub for full-stack development and robotics, and GLUG for GNU/Linux, open-source, and system-level engineering.",
   ctaLabel = "Explore Codeshack",
-  ctaHref = "#about",
+  ctaHref = "https://www.instagram.com/codeshack_community/",
 }) {
   const sectionRef = useRef(null);
 
@@ -100,7 +100,7 @@ export function Hero({
         }}
       >
         {/* Eyebrow */}
-        <a href={ctaHref} className="inline-block mb-4 relative z-10 group">
+        <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="inline-block mb-4 relative z-10 group">
           <span
             className="
               text-xs md:text-sm px-4 py-2 rounded-full uppercase
@@ -148,7 +148,7 @@ export function Hero({
             dark={dark}
             className="px-7 py-3 text-lg rounded-full shadow-lg transition-all"
           >
-            <a href={ctaHref}>{ctaLabel}</a>
+            <a href={ctaHref} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
           </Button>
         </div>
       </motion.div>
